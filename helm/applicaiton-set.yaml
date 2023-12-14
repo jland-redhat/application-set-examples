@@ -6,12 +6,12 @@ spec:
   generators:
   - list:
       elements:
-      - namespace: example-namespace-1
+      - namespace: example-namespace-2
         requests.cpu: '1'
         requests.memory: 1Gi
         limits.cpu: '2'
         limits.memory: 2Gi
-      - namespace: example-namespace-2
+      - namespace: example-namespace-3
         requests.cpu: '2'
         requests.memory: 4Gi
         limits.cpu: '4'

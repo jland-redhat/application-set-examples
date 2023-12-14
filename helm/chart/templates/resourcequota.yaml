@@ -6,5 +6,5 @@ spec:
   hard:
     requests.cpu: {{ .Values.requests.cpu | quote }}
     requests.memory: {{ .Values.requests.memory }}
-    limits.cpu: {{ .Values.limit.cpu | quote }}
-    limits.memory: {{ .Values.limit.memory }}
+    limits.cpu: {{ .Values.limits.cpu | quote }}
+    limits.memory: {{ .Values.limits.memory }}
