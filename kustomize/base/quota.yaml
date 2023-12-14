@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: example
+  name: namespace-quota
   namespace: my-application-ca
 spec:
   hard:
