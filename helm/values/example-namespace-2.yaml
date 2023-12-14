@@ -1,0 +1,6 @@
+requests:
+  cpu: '5'
+  memory: 5Gi
+limits:
+  cpu: '10'
+  memory: 10Gi

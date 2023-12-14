@@ -30,14 +30,14 @@ spec:
         path: "helm/chart"
         helm:
           parameters:
-          - name: requests.cpu
-            value: {{requests.cpu}}
-          - name: requests.memory
-            value: {{requests.memory}}
-          - name: limits.cpu
-            value: {{limits.cpu}}
-          - name: limits.memory
-            value: {{limits.memory}}
+            - name: requests.cpu
+              value: "{{requests.cpu}}"
+            - name: requests.memory
+              value: "{{requests.memory}}"
+            - name: limits.cpu
+              value: "{{limits.cpu}}"
+            - name: limits.memory
+              value: "{{limits.memory}}"
       destination:
         name: in-cluster
         namespace: "{{namespace}}"

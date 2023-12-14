@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: main
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/jland-redhat/application-set-examples.git
+      revision: HEAD
+      directories:
+      - path: helm/values/*
+  template:
+    metadata:
+      name: "{{.path.basename}}-limits"
+      namespace: "{{.path.basename}}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: ".;.."
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/jland-redhat/application-set-examples.git
+        targetRevision: HEAD
+        path: "helm/chart"
+        helm:
+          valuesFiles:
+          - helm/values/{{.path.basename}}.yaml
+      destination:
+        name: in-cluster
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
