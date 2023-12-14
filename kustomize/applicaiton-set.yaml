@@ -31,12 +31,21 @@ spec:
         kustomize:
           patches:
           - target:
-              kind: Qutoa
-              name: guestbook-ui
+              kind: ResourceQuota
+              name: namespace-quota
             patch: |-
               - op: replace
-                path: /spec/template/spec/containers/0/ports/0/containerPort
-                value: 443
+                path: /spec/hard/requests.cpu
+                value: {{requests.cpu}}
+              - op: replace
+                path: /spec/hard/requests.memory
+                value: {{requests.memory}}
+              - op: replace
+                path: /spec/hard/limits.cpu
+                value: {{limits.cpu}}
+              - op: replace
+                path: /spec/hard/limits.memory
+                value: {{limits.memory}}
       destination:
         name: in-cluster
         namespace: "{{namespace}}"
