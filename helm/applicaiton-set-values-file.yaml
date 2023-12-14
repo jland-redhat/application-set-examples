@@ -7,8 +7,8 @@ spec:
   - git:
       repoURL: https://github.com/jland-redhat/application-set-examples.git
       revision: HEAD
-      directories:
-      - path: helm/values/*
+      files:
+      - path: helm/values/**/values.yaml
   template:
     metadata:
       name: "{{.path.basename}}-limits"
@@ -23,10 +23,10 @@ spec:
         path: "helm/chart"
         helm:
           valuesFiles:
-          - helm/values/{{.path.basename}}.yaml
+          - helm/values/{{.path.basename}}/value.yaml
       destination:
         name: in-cluster
-        namespace: "{{namespace}}"
+        namespace: "{{.path.basename}}"
       syncPolicy:
         automated:
           prune: true
