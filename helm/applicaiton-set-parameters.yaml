@@ -41,6 +41,7 @@ spec:
       destination:
         name: in-cluster
         namespace: "{{namespace}}"
+        server: "https://kubernetes.default.svc"
       syncPolicy:
         automated:
           prune: true
