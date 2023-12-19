@@ -3,12 +3,14 @@ kind: ApplicationSet
 metadata:
   name: main
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
       repoURL: https://github.com/jland-redhat/application-set-examples.git
       revision: HEAD
-      files:
-      - path: helm/values/**/values.yaml
+      directories:
+      - path: helm/values/*
   template:
     metadata:
       name: "{{.path.basename}}-limits"
