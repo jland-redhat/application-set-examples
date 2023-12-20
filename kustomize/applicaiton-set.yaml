@@ -20,8 +20,6 @@ spec:
     metadata:
       name: "{{namespace}}-limits"
       namespace: "{{namespace}}"
-      annotations:
-        argocd.argoproj.io/manifest-generate-paths: ".;.."
     spec:
       project: default
       source:

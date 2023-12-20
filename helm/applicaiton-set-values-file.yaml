@@ -14,9 +14,6 @@ spec:
   template:
     metadata:
       name: "{{.path.basename}}-limits"
-      namespace: "{{.path.basename}}"
-      annotations:
-        argocd.argoproj.io/manifest-generate-paths: ".;.."
     spec:
       project: default
       source:

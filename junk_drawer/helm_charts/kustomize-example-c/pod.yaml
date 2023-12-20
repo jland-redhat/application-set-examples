@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: my-container
-    image: nginx:latest
+    image: image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest:latest
     ports:
     - containerPort: 80
