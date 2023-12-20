@@ -10,3 +10,9 @@ spec:
     image: image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest:latest
     ports:
     - containerPort: 80
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+    
