@@ -13,8 +13,8 @@ spec:
       - path: junk_drawer/helm_charts/*
   template:
     metadata:
-      name: "{{.path.basename}}-limits"
-      namespace: "{{.path.basename}}"
+      name: "{{.path.basename}}"
+      namespace: "junk-drawer"
       annotations:
         argocd.argoproj.io/manifest-generate-paths: ".;.."
     spec:
